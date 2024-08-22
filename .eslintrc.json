@@ -1,5 +1,4 @@
 {
-  "extends": "airbnb",
   "parserOptions": {
     "sourceType": "module",
     "parser": "babel-eslint"
@@ -13,15 +12,11 @@
     "import/no-unresolved": "off",
     "import/no-extraneous-dependencies": "off",
     "no-use-before-define": "off",
-    "promise/param-names": 2,
-    "promise/always-return": 2,
-    "promise/catch-or-return": 2,
-    "promise/no-native": 0,
     "react/jsx-no-bind": "off",
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
     "react/prefer-stateless-function": "off"
   },
-  "plugins": ["promise", "compat", "react"],
+  "plugins": ["compat", "import", "react"],
   "env": {
     "jest": true,
     "browser": true

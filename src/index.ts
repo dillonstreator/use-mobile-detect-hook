@@ -1,4 +1,14 @@
-function detect(userAgent: string) {
+export type Detection = {
+  isAndroid: boolean;
+  isIos: boolean;
+  isOpera: boolean;
+  isWindows: boolean;
+  isSSR: boolean;
+  isMobile: boolean;
+  isDesktop: boolean;
+};
+
+function detect(userAgent: string): Detection {
   const isAndroid = Boolean(userAgent.match(/Android/i));
   const isIos = Boolean(userAgent.match(/iPhone|iPad|iPod/i));
   const isOpera = Boolean(userAgent.match(/Opera Mini/i));
@@ -14,10 +24,10 @@ function detect(userAgent: string) {
     isWindows,
     isSSR,
     isMobile,
-    isDesktop
+    isDesktop,
   };
 }
-type DetectCache = { [key: string]: ReturnType<typeof detect> };
+type DetectCache = { [key: string]: Detection };
 const newMobileDetector = () => {
   const cache: DetectCache = {};
   return {
@@ -26,7 +36,7 @@ const newMobileDetector = () => {
       const result = detect(userAgent);
       cache[userAgent] = result;
       return result;
-    }
+    },
   };
 };
 const mobileDetector = newMobileDetector();
@@ -35,4 +45,4 @@ const useMobileDetect = () => {
   return mobileDetector.detect(userAgent);
 };
 
-module.exports = useMobileDetect;
+export default useMobileDetect;

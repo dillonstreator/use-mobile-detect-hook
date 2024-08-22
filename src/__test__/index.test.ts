@@ -1,9 +1,9 @@
-const useMobileDetect = require('../../build/index');
+import useMobileDetect from '../index';
 
-const setUserAgent = userAgent => {
+const setUserAgent = (userAgent: string) => {
   Object.defineProperty(navigator, 'userAgent', {
     value: userAgent,
-    writable: true
+    writable: true,
   });
 };
 describe('useMobileDetect', () => {

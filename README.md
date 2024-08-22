@@ -24,14 +24,14 @@ Follow [this link](http://www.maheshhaldar.com/demo-use-mobile-detect-hook/) to 
 import useMobileDetect from 'use-mobile-detect-hook';
 
 function MyComponent  = (props) => {
-  const detectMobile = useMobileDetect();
+  const detection = useMobileDetect();
 
   return (
       <div>
-        is Mobile: { detectMobile.isMobile() } <br/>
-        is Desktop: { detectMobile.isDesktop() } <br/>
-        is Android: { detectMobile.isAndroid() } <br/>
-        is iOS: { detectMobile.isIos() }
+        is Mobile: { detection.isMobile } <br/>
+        is Desktop: { detection.isDesktop } <br/>
+        is Android: { detection.isAndroid } <br/>
+        is iOS: { detection.isIos }
       </div>
   );
 };
